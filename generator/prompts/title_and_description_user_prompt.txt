@@ -1,0 +1,17 @@
+Based on this configuration JSON and the accompanying profile image context:
+
+{{CHAT_JSON}}
+
+Produce a single JSON object with exactly these keys:
+
+{
+  "title": "...",
+  "description": "..."
+}
+
+Requirements:
+- The title follows the constraints above (max 100 characters, honest, curiosity-inducing, relevant keyword if natural, no quotes/hashtags/trailing punctuation).
+- The description is 1–2 concise sentences that build on the title, reflect the channel identity, and include one relevant keyword naturally, with no hashtags/links/emojis. Max 100 characters.
+- Write in the language implied by the configuration (if specified); otherwise, match the channel identity.
+
+Return ONLY the JSON object. Do not include code fences or explanations.

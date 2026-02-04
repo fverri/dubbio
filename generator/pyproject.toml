@@ -1,0 +1,17 @@
+[project]
+name = "dubbio"
+version = "0.1.0"
+description = "An automated YouTube Shorts video generator using AI."
+readme = "../README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "dotenv>=0.9.9",
+    "google-api-python-client>=2.189.0",
+    "google-auth-oauthlib>=1.2.4",
+    "moviepy>=1.0.3",
+    "numpy>=2.4.2",
+    "openai>=2.16.0",
+    "opencv-python>=4.13.0.90",
+    "pillow>=12.1.0",
+    "playwright>=1.58.0",
+]

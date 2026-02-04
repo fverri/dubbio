@@ -1,0 +1,4 @@
+Using the chat JSON below, write a single, coherent paragraph for a photorealistic portrait image of the person identified by “profile_name”. Include the subject’s first name, gender, and a plausible age based on the chat tone. Reflect mood and personality cues from the messages. Describe a fitting setting and time of day, suggest appropriate clothing or accessories, use light portrait-photography camera language, specify one lighting type and one general visual style, and end with a brief color palette.
+
+Chat JSON:
+{{CHAT_JSON}}

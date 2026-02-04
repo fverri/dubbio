@@ -1,0 +1,14 @@
+configuration.json
+profile_image.jpg
+.venv/
+__pycache__/
+.env
+token.pickle
+client_secret.json
+conversation_cache.json
+calls_log.txt
+*.mp4
+node_modules/
+.DS_Store
+*.wav
+*.png
