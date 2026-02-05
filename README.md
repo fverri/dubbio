@@ -13,19 +13,41 @@ This project is an automated YouTube Shorts generator intended for fully schedul
 - `main.py`: Orchestrates generation, scheduling, and upload.
 - `chat_to_images.py`, `chat_to_speeches.py`, `images_and_speeches_to_video.py`: Asset pipeline.
 - `prompts/`: Prompt templates for JSON, images, and YouTube metadata.
-- `react_imessage/`: React renderer used by Playwright.
+- `react_imessage/`: React app that renders iMessage-style chats and Playwright captures the screenshots.
 - `background_videos/`, `background_music.mp3`: Stock assets for the final video.
 - `images/`, `speeches/`, `videos/`: Generated assets and output videos.
 
 ## Prerequisites
 
-Your environment should include:
+Your should have:
 - Python
 - Node.js
 - uv
 - FFmpeg available in your PATH (required by MoviePy)
 - An OpenAI API key
 - A Google OAuth client for YouTube upload (`client_secret.json`)
+
+### Install uv
+
+Install uv using one of the following:
+
+**Windows (PowerShell)**
+
+```powershell
+irm https://astral.sh/uv/install.ps1 | iex
+```
+
+**macOS/Linux**
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+After installing, restart your terminal and verify:
+
+```bash
+uv --version
+```
 
 ## Installation and Setup
 
@@ -39,9 +61,31 @@ Your environment should include:
 
    ```bash
    cd dubbio
+   ```
+
+   ```bash
    uv venv
-   .venv\Scripts\activate
-   uv pip install -e .
+   ```
+
+   **Activate the venv**
+
+   **Windows (PowerShell)**
+
+   ```powershell
+   .venv\Scripts\Activate.ps1
+   ```
+
+   **macOS/Linux**
+
+   ```bash
+   source .venv/bin/activate
+   ```
+
+   ```bash
+   uv sync
+   ```
+
+   ```bash
    uv run python -m playwright install
    ```
 
@@ -49,6 +93,9 @@ Your environment should include:
 
    ```bash
    cd react_imessage
+   ```
+
+   ```bash
    npm install
    ```
 
@@ -83,6 +130,8 @@ Watch an example generated video:
 
 [https://www.youtube.com/shorts/Qvvjdahfhic](https://www.youtube.com/shorts/Qvvjdahfhic)
 
+That channel is intended to currently be controlled by a Raspberry Pi 4 running this repository's code to generate and upload the shorts.
+
 Feedback on the video is appreciated. Please leave a comment on the linked short.
 
 ### Configuration
@@ -101,7 +150,7 @@ Download the background videos from:
 
 [https://drive.google.com/drive/folders/1WdyMriCtzpz-fefbO5L7g4Qxt179435A?usp=drive_link](https://drive.google.com/drive/folders/1WdyMriCtzpz-fefbO5L7g4Qxt179435A?usp=drive_link)
 
-Place the `.mp4` files in `background_videos/` (the app expects files named like `background_video_1.mp4`, `background_video_2.mp4`, etc.).
+The files in that Drive folder are already named like `background_video_1.mp4`, `background_video_2.mp4`, etc. The app expects that naming in `background_videos/`, so place the `.mp4` files there as-is.
 
 ### Output
 
