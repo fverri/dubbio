@@ -242,7 +242,7 @@ def start_react_server():
     npm_cmd = "npm.cmd" if os.name == "nt" else "npm"
     proc = subprocess.Popen(
         [npm_cmd, "start"],
-        cwd="../react-imessage",
+        cwd="react_imessage",
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
         stdin=subprocess.DEVNULL,

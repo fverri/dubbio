@@ -1,8 +1,8 @@
 [project]
 name = "dubbio"
 version = "0.1.0"
-description = "An automated YouTube Shorts video generator using AI."
-readme = "../README.md"
+description = "An AI driven YouTube Shorts generator"
+readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "dotenv>=0.9.9",

@@ -11,7 +11,7 @@ def _generate_image(chat, block_number, message_number):
     no_max_height_image = (
         f"images/no_max_height_image_{block_number}_{message_number}.png"
     )
-    react_imessage_chat = "../react-imessage/public/chat.json"
+    react_imessage_chat = "react_imessage/public/chat.json"
 
     with open(react_imessage_chat, "w", encoding="utf-8") as file:
         json.dump({"messages": chat["messages"]}, file, indent=4, ensure_ascii=False)
@@ -69,13 +69,13 @@ def chat_to_images() -> None:
     messages = chat_data.get("messages", [])
     profile_name = chat_data.get("profile_name", "Usuario")
 
-    profile_name_path = "../react-imessage/public/profile_name.json"
+    profile_name_path = "react_imessage/public/profile_name.json"
     with open(profile_name_path, "w", encoding="utf-8") as file:
         json.dump({"profileName": profile_name}, file, indent=4, ensure_ascii=False)
 
     block_number = 1
 
-    shutil.copy("profile_image.png", "../react-imessage/public/")
+    shutil.copy("profile_image.png", "react_imessage/public/")
 
     while messages:
         block = []
@@ -106,6 +106,6 @@ def chat_to_images() -> None:
         else:
             messages = messages[1:]
 
-    os.remove("../react-imessage/public/chat.json")
-    os.remove("../react-imessage/public/profile_name.json")
-    os.remove("../react-imessage/public/profile_image.png")
+    os.remove("react_imessage/public/chat.json")
+    os.remove("react_imessage/public/profile_name.json")
+    os.remove("react_imessage/public/profile_image.png")

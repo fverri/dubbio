@@ -8,6 +8,15 @@ This project is an automated YouTube Shorts generator intended for fully schedul
 - **iMessage Rendering Pipeline**: Uses a React UI and Playwright to capture iMessage-style chat screenshots.
 - **Video Composition and Upload**: Combines assets with background video/music and uploads to YouTube Shorts.
 
+## Project Structure
+
+- `main.py`: Orchestrates generation, scheduling, and upload.
+- `chat_to_images.py`, `chat_to_speeches.py`, `images_and_speeches_to_video.py`: Asset pipeline.
+- `prompts/`: Prompt templates for JSON, images, and YouTube metadata.
+- `react_imessage/`: React renderer used by Playwright.
+- `background_videos/`, `background_music.mp3`: Stock assets for the final video.
+- `images/`, `speeches/`, `videos/`: Generated assets and output videos.
+
 ## Prerequisites
 
 Your environment should include:
@@ -29,7 +38,7 @@ Your environment should include:
 2. **Install Python Dependencies (uv)**:
 
    ```bash
-   cd dubbio/generator
+   cd dubbio
    uv venv
    .venv\Scripts\activate
    uv pip install -e .
@@ -39,23 +48,24 @@ Your environment should include:
 3. **Install Frontend Dependencies**:
 
    ```bash
-   cd ../react-imessage
+   cd react_imessage
    npm install
    ```
 
 4. **Configure Secrets**:
 
-   Create `generator/.env` with your OpenAI key:
+   Create `.env` at the repository root with your OpenAI key:
 
    ```env
    OPENAI_API_KEY=your_key_here
    ```
 
-   Place your YouTube OAuth file at `generator/client_secret.json`.
+   Place your YouTube OAuth file at `client_secret.json`.
+   A walkthrough for obtaining `client_secret.json` is available at https://www.youtube.com/watch?v=sp3qM2URcig.
 
 ## Usage
 
-Run the generator from the `generator` directory:
+Run the generator from the repository root:
 
 ```bash
 uv run python main.py
@@ -77,13 +87,13 @@ Feedback on the video is appreciated. Please leave a comment on the linked short
 
 ### Configuration
 
-Edit the schedule and limits in `generator/main.py`:
+Edit the schedule and limits in `main.py`:
 
 - `GENERATE_AT`: UTC time for daily generation
 - `UPLOAD_TIMES`: UTC times for uploads
 - `CACHE_SIZE`: Number of recent chat configurations to retain
 
-Prompt improvements are encouraged. Modify the templates in `generator/prompts` to refine tone, structure, and output quality.
+Prompt improvements are encouraged. Modify the templates in `prompts` to refine tone, structure, and output quality.
 
 ### Background Videos
 
@@ -91,14 +101,14 @@ Download the background videos from:
 
 [https://drive.google.com/drive/folders/1WdyMriCtzpz-fefbO5L7g4Qxt179435A?usp=drive_link](https://drive.google.com/drive/folders/1WdyMriCtzpz-fefbO5L7g4Qxt179435A?usp=drive_link)
 
-Place the `.mp4` files in `generator/background_videos/` (the app expects files named like `background_video_1.mp4`, `background_video_2.mp4`, etc.).
+Place the `.mp4` files in `background_videos/` (the app expects files named like `background_video_1.mp4`, `background_video_2.mp4`, etc.).
 
 ### Output
 
 Generated videos are saved to:
 
 ```text
-generator/videos/output_video_<n>.mp4
+videos/output_video_<n>.mp4
 ```
 
 ## Contributions
