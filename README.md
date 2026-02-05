@@ -64,24 +64,6 @@ uv --version
    ```
 
    ```bash
-   uv venv
-   ```
-
-   **Activate the venv**
-
-   **Windows (PowerShell)**
-
-   ```powershell
-   .venv\Scripts\Activate.ps1
-   ```
-
-   **macOS/Linux**
-
-   ```bash
-   source .venv/bin/activate
-   ```
-
-   ```bash
    uv sync
    ```
 
