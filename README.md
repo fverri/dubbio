@@ -81,6 +81,12 @@ uv --version
    npm install
    ```
 
+   If npm reports vulnerabilities, run:
+
+   ```bash
+   npm audit fix
+   ```
+
 4. **Configure Secrets**:
 
    Create `.env` at the repository root with your OpenAI key:

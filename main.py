@@ -19,8 +19,7 @@ GENERATE_AT = (5, 0)
 
 UPLOAD_TIMES = ((17, 0), (21, 0))
 
-env_path = find_dotenv(usecwd=True)
-values = dotenv_values(env_path)
+values = dotenv_values(".env")
 
 client = OpenAI(api_key=(values.get("OPENAI_API_KEY")))
 
